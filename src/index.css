@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background: 251 100% 99%;
+    --foreground: 240 6% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 6% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 6% 10%;
+
+    --primary: 259 94% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 6% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 259 94% 51%;
+
+
+    --node-level-1: 259 94% 51%;
+    --node-level-2: 200 98% 39%;
+    --node-level-3: 142 76% 36%;
+    --node-home: 34 100% 50%;
+    --node-section: 280 100% 70%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(259 94% 51%), hsl(280 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(200 98% 39%), hsl(142 76% 36%));
+    --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%), hsl(240 5% 98%));
+    
+    
+    --shadow-flow: 0 20px 40px -12px hsl(259 94% 51% / 0.15);
+    --shadow-node: 0 8px 25px -8px hsl(240 6% 10% / 0.1);
+    --shadow-elevated: 0 16px 32px -8px hsl(240 6% 10% / 0.15);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 6% 6%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 6% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 6% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 259 94% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 259 94% 51%;
+
+   
+    --node-level-1: 259 94% 51%;
+    --node-level-2: 200 98% 39%;
+    --node-level-3: 142 76% 36%;
+    --node-home: 34 100% 50%;
+    --node-section: 280 100% 70%;
+    
+    
+    --gradient-primary: linear-gradient(135deg, hsl(259 94% 51%), hsl(280 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(200 98% 39%), hsl(142 76% 36%));
+    --gradient-surface: linear-gradient(180deg, hsl(240 6% 8%), hsl(240 4% 12%));
+    
+    --shadow-flow: 0 20px 40px -12px hsl(0 0% 0% / 0.3);
+    --shadow-node: 0 8px 25px -8px hsl(0 0% 0% / 0.2);
+    --shadow-elevated: 0 16px 32px -8px hsl(0 0% 0% / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  
+  .flow-editor {
+    @apply relative w-full h-screen overflow-hidden;
+    background: var(--gradient-surface);
+  }
+  
+  .flow-toolbar {
+    @apply absolute top-4 left-4 z-10 flex items-center gap-2 p-3 rounded-lg border bg-card/80 backdrop-blur-sm;
+    box-shadow: var(--shadow-elevated);
+  }
+  
+  .flow-node {
+    @apply rounded-lg border-2 p-4 text-center font-medium transition-all duration-200;
+    box-shadow: var(--shadow-node);
+  }
+  
+  .flow-node-level-1 {
+    @apply bg-gradient-to-br from-orange-500 to-orange-600 text-white border-orange-400;
+  }
+  
+  .flow-node-level-2 {
+    @apply bg-gradient-to-br from-blue-500 to-blue-600 text-white border-blue-400;
+  }
+  
+  .flow-node-level-3 {
+    @apply bg-gradient-to-br from-green-500 to-green-600 text-white border-green-400;
+  }
+  
+  .flow-node-section {
+    @apply bg-gradient-to-br from-purple-400 to-purple-500 text-white border-purple-300 cursor-move;
+  }
+  
+  .flow-edge {
+    stroke-width: 2;
+    stroke: hsl(var(--muted-foreground));
+  }
+  
+  .sortable-item {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  .sortable-item.dragging {
+    @apply opacity-50 scale-95;
+  }
+}
